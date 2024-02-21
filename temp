@@ -1,0 +1,190 @@
+// let playlist = [ // { // name: "The AnX!TY !!", // img:
+"https://i.scdn.co/image/ab67706c0000dec50334641284e9b20c68ae05f0", // creator:
+"Himanshu", // }, // { // name: "Space-mate", // img:
+"https://i.scdn.co/image/ab67706c0000dec526e5f5103878e538f7c9d73c", // creator:
+"Himanshu", // }, // { // name: "Perfect Songs!", // img:
+"https://mosaic.scdn.co/60/ab67616d00001e026cfe31d4e5d58710add69045ab67616d00001e0296bc7d5bd0b6488de76598abab67616d00001e02f8f2bc4006346cb97bb8b74fab67616d00001e02fae65e5717bdab6ec896cc15",
+// creator: "Himanshu", // }, // { // name: "..... 🎵 Music", // img:
+"https://mosaic.scdn.co/60/ab67616d00001e0218b8088fe0c3dbf78398b55aab67616d00001e025675e83f707f1d7271e5cf8aab67616d00001e02712701c5e263efc8726b1464ab67616d00001e02ba5db46f4b838ef6027e6f96",
+// creator: "shildeep waghmare", // }, // ]; // let songs = [ // { // name:
+"Sunflower", // img:
+"https://i.scdn.co/image/ab67616d00001e02e2e352d89826aef6dbd5ff8f", // creator:
+"Post Malone, Swae Lee", // url: "./The AnX!TY !!/Sunflower - Spider-Man_ Into
+the Spider-Verse (1).mp3", // }, // { // name: "Agora Hills", // img:
+"https://i.scdn.co/image/ab67616d00001e0294203dd82d27b494c777d07c", // creator:
+"Doja Cat", // url: "./The AnX!TY !!/Agora Hills.mp3", // }, // { // name:
+"Paint The Town Red", // img:
+"https://i.scdn.co/image/ab67616d00001e027acee948ecac8380c1b6ce30", // creator:
+"Doja Cat", // url: "./The AnX!TY !!/Paint The Town Red.mp3", // }, // { //
+name: "I Wanna Be Yours", // img:
+"https://i.scdn.co/image/ab67616d00001e024ae1c4c5c45aabe565499163", // creator:
+"Arctic Monkeys", // url: "./The AnX!TY !!/I Wanna Be Yours.mp3", // }, // { //
+name: "Sweater Weather", // img:
+"https://i.scdn.co/image/ab67616d00001e028265a736a1eb838ad5a0b921", // creator:
+"The Neighbourhood", // url: "./The AnX!TY !!/Sweater Weather.mp3", // }, // {
+// name: "All Girls Are The Same", // img:
+"https://i.scdn.co/image/ab67616d00001e02f7db43292a6a99b21b51d5b4", // creator:
+"juice WRLD", // url: "./The AnX!TY !!/All Girls Are The Same.mp3", // }, // {
+// name: "SugarCrash!", // img:
+"https://i.scdn.co/image/ab67616d00001e0266f688086d483cf5781942e0", // creator:
+"ElyOtto", // url: "./The AnX!TY !!/SugarCrash!.mp3", // }, // ]; // const
+ShowPlaylist = () => { // let clouser = ""; // let lib =
+document.getElementById("library"); // playlist.map( // (val) => // (clouser +=
+`
+<div class="play-list">
+  //
+  <div class="img">// <img // src="${val.img}" // alt="" // /> //</div>
+  //
+  <div class="txt">
+    //
+    <h3>${val.name}</h3>
+    //
+    <h5>
+      // Playlist //
+      <div class="dot"></div>
+      // ${val.creator} //
+    </h5>
+    //
+  </div>
+  //
+</div>
+`) // ); // lib.innerHTML = clouser; // }; // ShowPlaylist(); // let player =
+document.getElementById("player"); // var audio = new Audio(); // let Songs =
+document.getElementById("songs"); // const MainFunction = () => { // let clouser
+= ""; // songs.map( // (val, idex) => // (clouser += `
+<div class="song" id="${idex}">
+  //
+  <div class="song-img" data-index="${idex}">
+    // <img // src="${val.img}" // alt="" // data-index="${idex}" // /> //
+  </div>
+  //
+  <div class="song-info" data-index="${idex}">
+    //
+    <h3 data-index="${idex}">${val.name}</h3>
+    //
+    <h5 data-index="${idex}">${val.creator}</h5>
+    //
+  </div>
+  //
+</div>
+`) // ); // Songs.innerHTML = clouser; // Songs.addEventListener("click",
+function (event) { // let index = event.target.dataset.index; // SelectedSong =
+parseInt(index); // let clickedSong = songs[index]; // const songSrc =
+songs[index].url; // let forward = document.getElementById("forward"); // let
+selectedIndex = -1; // forward.addEventListener("click", function () { // if
+(selectedIndex < songs.length - 1) { // selectedIndex++; // Increment index to
+play the next song // const nextSong = songs[selectedIndex]; // audio.src =
+nextSong.url; // audio.play(); // main.innerHTML = `<i
+  class="ri-pause-mini-fill"
+></i
+>`; // // Update the empty variable to display the information of the next song
+// let empty = `
+<div class="song">
+  //
+  <div class="song-img">// <img src="${nextSong.img}" alt="" /> //</div>
+  //
+  <div class="song-info">
+    //
+    <div class="text">
+      //
+      <h3>${nextSong.name}</h3>
+      //
+      <h5>${nextSong.creator}</h5>
+      //
+    </div>
+    //
+    <div class="play" id="play">// <i class="ri-play-fill"></i> //</div>
+    //
+  </div>
+  //
+</div>
+`; // player.innerHTML = ""; // const newDiv = document.createElement("div"); //
+newDiv.className = "wraper-song"; // newDiv.innerHTML = empty; //
+player.appendChild(newDiv); // } else { // forward.style.opacity = 0.4; // } //
+}); // // let empty = `
+<div class="song">
+  // //
+  <div class="song-img">
+    // // <img // // src="${clickedSong.img}" // // alt="" // // /> // //
+  </div>
+  // //
+  <div class="song-info">
+    // //
+    <div class="text">
+      // //
+      <h3>${clickedSong.name}</h3>
+      // //
+      <h5>${clickedSong.creator}</h5>
+      // //
+    </div>
+    // //
+    <div class="play" id="play">// // <i class="ri-play-fill"></i> // //</div>
+    // //
+  </div>
+  // //
+</div>
+`; // // player.innerHTML = ""; // // const newDiv =
+document.createElement("div"); // // newDiv.className = "wraper-song"; // //
+newDiv.innerHTML = empty; // // player.appendChild(newDiv); // audio.src =
+songSrc; // main.innerHTML = `<i class="ri-pause-mini-fill"></i>`; // flag = 1;
+// playSong.innerHTML = `<i class="ri-pause-mini-fill"></i>`; // count = 1; //
+MainFunction(); // audio.play(); // // selectedIndex = parseInt(index); // let
+footersong = document.getElementById("footersong"); // let content = `
+<div class="song-img">
+  // <img // src="${clickedSong.img}" // alt="" // /> //
+</div>
+`; // content += `
+<div class="song-info">
+  //
+  <div class="text">
+    //
+    <h3>${clickedSong.name}</h3>
+    //
+    <h5>${clickedSong.creator}</h5>
+    //
+  </div>
+  //
+  <div class="play">// <i class="ri-play-fill"></i> //</div>
+  //
+</div>
+`; // footersong.innerHTML = content; // // let forward =
+document.getElementById("forward"); // let backward =
+document.getElementById("backward"); // // forward.addEventListener("click",
+function () { // // if (SelectedSong < songs.length - 1) { // // SelectedSong++;
+// // selectedIndex++; // // let nextSong = songs[SelectedSong]; // // let
+nextSongInfo = songs[selectedIndex]; // // console.log(nextSongInfo); // //
+audio.src = nextSong.url; // // audio.play(); // // console.log(index); // //
+main.innerHTML = `<i class="ri-pause-mini-fill"></i>`; // // } else { // //
+forward.style.opacity = 0.4; // // } // // }); //
+backward.addEventListener("click", function () { // if (SelectedSong > 0) { //
+SelectedSong--; // let prevSong = songs[SelectedSong]; // audio.src =
+prevSong.url; // audio.play(); // main.innerHTML = `<i
+  class="ri-pause-mini-fill"
+></i
+>`; // } else { // backward.style.opacity = 0.4; // } // }); // let
+PlayerForward = document.getElementById("PlayerForward"); // let PlayerBackward
+= document.getElementById("PlayerBackward"); //
+PlayerForward.addEventListener("click", function () { // if (SelectedSong <
+songs.length - 1) { // SelectedSong++; // let nextSong = songs[SelectedSong]; //
+audio.src = nextSong.url; // audio.play(); // } else { //
+PlayerForward.style.opacity = 0.4; // } // }); //
+PlayerBackward.addEventListener("click", function () { // if (SelectedSong > 0)
+{ // SelectedSong--; // let prevSong = songs[SelectedSong]; // audio.src =
+prevSong.url; // audio.play(); // } else { // PlayerBackward.style.opacity =
+0.4; // } // }); // let tempSong = document.getElementById("tempSong"); //
+tempSong.style.display = "none"; // }); // }; // MainFunction(); // let flag =
+0; // let count = 0; // let playSong = document.getElementById("playSong"); //
+let main = document.getElementById("mainPlay"); //
+main.addEventListener("click", function () { // console.log("Main clicked"); //
+Check if this message appears in the console // if (flag == 0) { //
+main.innerHTML = `<i class="ri-pause-mini-fill"></i>`; // audio.play(); // flag
+= 1; // } else { // main.innerHTML = `<i class="ri-play-mini-fill"></i>`; //
+audio.pause(); // flag = 0; // } // }); // playSong.addEventListener("click",
+function () { // console.log("Main clicked"); // Check if this message appears
+in the console // if (count == 0) { // playSong.innerHTML = `<i
+  class="ri-pause-mini-fill"
+></i
+>`; // audio.play(); // count = 1; // } else { // playSong.innerHTML = `<i
+  class="ri-play-mini-fill"
+></i
+>`; // audio.pause(); // count = 0; // } // });
