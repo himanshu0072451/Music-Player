@@ -28,7 +28,7 @@ You can see a live demo of the music player [here](#).
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-username/music-player.git
+  https://github.com/himanshu0072451/Music-Player.git
 
 2. **Navigate to the project directory:**
 
